@@ -20,7 +20,7 @@ if not api_key:
     st.error("GROQ_API_KEY not found. Add it to your .env file, then restart the app.")
     st.stop()
 
-api_key = os.getenv("GROQ_API_KEY")
+client = Groq(api_key=api_key)
 
 if "messages" not in st.session_state:
     st.session_state.messages = [{"role": "system", "content": SYSTEM_PROMPT}]
